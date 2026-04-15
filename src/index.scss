@@ -19,7 +19,7 @@ body {
 
 section {
     height: auto;
-    min-height: 650px;
+    min-height: 700px;
     width: 100%;
     display: block;
 }
@@ -28,7 +28,7 @@ section {
 //   PAGE PRINCIPAL
 // ══════════════════════════════
 .Pageprincipal {
-    background-image: url(Img/PGprincipal.png);
+    background-image: url(../Img/PGprincipal.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
@@ -233,7 +233,7 @@ border-radius: 12px;
     display: inline-block;
     width: 400px;
     height: 180px;
-    background-image: url(Img/logo.png);
+    background-image: url(../Img/logo.png);
     background-position: center;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -248,7 +248,7 @@ border-radius: 12px;
 .nosotros {
     height: auto;
     min-height: 600px;
-    background-image: url(Img/Copia\ de\ Inicio.png);
+    background-image: url('../Img/captura-inicio.png');
     background-size: cover;
     display: flex;
     align-items: center;
@@ -288,6 +288,7 @@ border-radius: 12px;
             gap: 0;
             padding-left: 6px;
             border-left: 2px solid #ddd;
+            
 
             .timeline-item {
                 display: flex;
@@ -347,7 +348,7 @@ border-radius: 12px;
             transform: translateX(-50%);
             width: 400px;
             height: 110%;
-            background-image: url(Img/telefono.png);
+            background-image: url(../Img/telefono.png);
             background-size: 80%;
             background-repeat: no-repeat;
             border-radius: 16px;
@@ -419,7 +420,7 @@ backdrop-filter: blur(12px);
 //   SOBRE NOSOTROS
 // ══════════════════════════════
 .Sobre {
-    background-image: url(Img/Sobre.png);
+    background-image: url(../Img/Sobre.png);
     background-size: 100%;
     background-repeat: no-repeat;
     height: 750px;
@@ -617,7 +618,7 @@ backdrop-filter: blur(12px);
                 display: inline-block;
                 width: 38px;
                 height: 38px;
-                background-image: url(Img/play.png);
+                background-image: url(../Img/play.png);
                 background-size: cover;
                 border-radius: 4px;
                 flex-shrink: 0;
@@ -631,6 +632,7 @@ backdrop-filter: blur(12px);
 // ══════════════════════════════
 .Aliados {
     height: 200px;
+    min-height: unset !important;
     width: 100%;
     background: #FFFFFF;
 background: linear-gradient(180deg,rgba(255, 255, 255, 1) 0%, rgba(247, 247, 247, 1) 50%, rgba(240, 240, 240, 1) 100%);
@@ -681,7 +683,7 @@ background: linear-gradient(180deg,rgba(255, 255, 255, 1) 0%, rgba(247, 247, 247
 //   clasicos
 // ══════════════════════════════
 .Clasicos {
-    background-image: url(Img/musica.png);
+    background-image: url(../Img/musica.png);
     background-position: center;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -911,7 +913,7 @@ backdrop-filter: blur(3px);
         .footer-logo {
             width: 200px;
             height: 70px;
-            background-image: url(Img/logo.png);
+            background-image: url(../Img/logo.png);
             background-position: center;
             background-size: 80%;
             background-repeat: no-repeat;
@@ -1216,7 +1218,7 @@ backdrop-filter: blur(3px);
         .player-logo {
             width: 36px;
             height: 36px;
-            background-image: url(Img/Gemini_Generated_Image_h3mg3hh3mg3hh3mg-artguru.png);
+            background-image: url(../Img/Gemini_Generated_Image_h3mg3hh3mg3hh3mg-artguru.png);
             background-size: 90%;
             background-repeat: no-repeat;
             background-position: center;
@@ -1717,63 +1719,88 @@ backdrop-filter: blur(3px);
 // ── Tablet (≤ 900px) ──
 @media (max-width: 900px) {
 
-    section { height: auto; }
+    section { height: auto !important; min-height: unset !important; }
 
     // Hero
     .Pageprincipal {
+        min-height: 100svh;
+        background-size: cover;
+        background-position: center;
+
         .nav-principal {
-            gap: 20px;
-            padding: 14px 24px;
+            gap: 16px;
+            padding: 14px 20px;
             flex-wrap: wrap;
             justify-content: center;
         }
 
         .hero-body {
             flex-direction: column;
-            gap: 30px;
-            padding: 20px 24px 40px;
+            align-items: center;
+            gap: 24px;
+            padding: 24px 20px 40px;
             margin-top: 0;
             text-align: center;
 
             .hero-texto {
-                h1 { font-size: 2.6rem; }
-                .hero-sub { font-size: 1.6rem; justify-content: center; }
+                h1 { font-size: 2.2rem; }
+                .hero-sub { font-size: 1.4rem; justify-content: center; flex-wrap: wrap; }
                 .btn-sintoniza { margin-left: 0; }
             }
 
             .cards-container {
-                grid-template-columns: repeat(2, 160px);
-                .card:nth-child(2) { margin: 0; }
-                .card:nth-child(3) { margin: 0; }
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                width: 100%;
+                
+
+                .card {
+                    width: 260px;
+                    
+                    animation: none !important;
+                    grid-column: unset !important;
+                    grid-row: unset !important;
+
+                  &:nth-child(1) {
+                    margin: 10px 200px -10px 0px ;
+                }   
+                
+                 &:nth-child(2) {
+                    margin: 10px 0px -10px 200px ; 
+                }
+                 &:nth-child(3) {
+                    margin: 10px 100px -10px 0px ;
+                }   
+                }
             }
         }
     }
 
-    .logo-box { width: 260px; height: 120px; }
+    .logo-box { width: 260px; height: 110px; }
 
     // Nosotros
     .nosotros {
         flex-direction: column;
         gap: 40px;
-        padding: 60px 24px;
-        min-height: auto;
+        padding: 50px 60px;
+        min-height: unset;
 
         .nosotros-texto { max-width: 100%; }
+        .nosotros-visual { display: none; }
 
-        .nosotros-visual {
-            width: 100%;
-            height: 320px;
-
-            .nosotros-card--top  { right: 0; }
-            .nosotros-card--bottom { left: 0; }
-        }
+        .timeline-title { font-size: 1.2rem; }
+        .timeline-text  { font-size: 1rem; line-height: 1.6; }
+        .timeline-dot   { width: 52px; height: 52px; left: -32px; }
     }
 
     // Sobre
     .Sobre {
-        flex-direction: column;
+        flex-direction: column-reverse;
         height: auto;
-        padding: 60px 24px;
+        background-size: cover;
+        padding: 50px 20px;
         gap: 40px;
 
         .sobre-programas {
@@ -1785,20 +1812,20 @@ backdrop-filter: blur(3px);
             margin-left: 0;
             max-width: 100%;
             text-align: center;
-
             h2 { font-size: 2rem; }
             .btn-descargar { margin: 0 auto; }
         }
     }
 
     // Aliados
-    .Aliados { height: auto; padding: 30px 0; }
+    .Aliados { height: 200px !important; min-height: unset !important; padding: 24px 0; }
 
     // Clásicos
     .Clasicos {
         flex-direction: column;
         height: auto;
-        padding: 60px 24px;
+        background-size: cover;
+        padding: 50px 20px;
         gap: 30px;
 
         .clasicos-texto {
@@ -1807,10 +1834,7 @@ backdrop-filter: blur(3px);
             h2 { font-size: 2rem; }
         }
 
-        .clasicos-artistas {
-            align-items: center;
-            .artista-card--2 { align-self: center; }
-        }
+        .clasicos-artistas { display: none; }
 
         .clasicos-musica {
             margin-left: 0;
@@ -1821,81 +1845,69 @@ backdrop-filter: blur(3px);
 
     // Footer
     .footer {
-        .footer-top {
-            padding: 40px 24px;
-            gap: 32px;
-        }
-        .footer-bottom { padding: 16px 24px; }
+        .footer-top { padding: 40px 20px; gap: 28px; }
+        .footer-bottom { padding: 16px 20px; }
     }
 }
 
 // ── Mobile (≤ 600px) ──
 @media (max-width: 600px) {
 
-    // Nav
     .Pageprincipal {
         .nav-principal {
-            gap: 12px;
-            padding: 12px 16px;
-            a { font-size: 0.8rem; gap: 3px; }
-            a svg { width: 18px; height: 18px; }
+            gap: 10px;
+            padding: 10px 12px;
+            a { font-size: 0.75rem; gap: 3px; }
+            a svg { width: 16px; height: 16px; }
         }
 
         .hero-body {
-            padding: 16px 16px 32px;
+            padding: 16px 12px 32px;
 
             .hero-texto {
-                h1 { font-size: 1.9rem; }
-                .hero-sub { font-size: 1.2rem; flex-direction: column; gap: 6px; }
+                h1 { font-size: 1.7rem; }
+                .hero-sub { font-size: 1.1rem; flex-direction: column; gap: 4px; }
             }
 
             .cards-container {
-                grid-template-columns: 1fr;
-                width: 100%;
-
-                .card {
-                    width: 100%;
-                    &:nth-child(1) { grid-column: 1; grid-row: 1; }
-                    &:nth-child(2) { grid-column: 1; grid-row: 2; margin: 0; }
-                    &:nth-child(3) { grid-column: 1; grid-row: 3; margin: 0; }
-                }
+                .card { width: 90vw; max-width: 300px; }
             }
         }
     }
 
-    .logo-box { width: 200px; height: 90px; }
+    .logo-box { width: 180px; height: 80px; }
 
     // Nosotros
     .nosotros {
-        padding: 40px 16px;
-
-        .nosotros-visual {
-            height: 280px;
-            .nosotros-img { width: 160px; }
-            .nosotros-card { min-width: 160px; }
-            .nosotros-card--top  { right: -10px; }
-            .nosotros-card--bottom { left: -10px; }
-        }
+        padding: 36px 12px;
+        .nosotros-visual { display: none; }
     }
 
     // Sobre
     .Sobre {
-        padding: 40px 16px;
+        padding: 36px 12px;
 
         .sobre-programas {
-            grid-template-columns: repeat(2, 140px);
+            grid-template-columns: repeat(2, 1fr);
+            width: 100%;
             gap: 10px;
+            .programa-card { width: 100%; }
         }
 
-        .sobre-texto h2 { font-size: 1.6rem; }
+        .sobre-texto h2 { font-size: 1.5rem; }
     }
 
     // Clásicos
     .Clasicos {
-        padding: 40px 16px;
+        padding: 36px 12px;
+
+        .clasicos-artistas {
+            gap: 16px;
+        }
 
         .clasicos-musica {
-            .musica-card { width: 130px; }
+            gap: 10px;
+            .musica-card { width: 140px; }
             .musica-card--lg { width: 140px; }
         }
     }
@@ -1904,21 +1916,22 @@ backdrop-filter: blur(3px);
     .footer {
         .footer-top {
             flex-direction: column;
-            padding: 32px 16px;
-            gap: 24px;
+            padding: 28px 12px;
+            gap: 20px;
         }
         .footer-bottom {
             flex-direction: column;
             text-align: center;
-            padding: 14px 16px;
+            padding: 12px;
         }
     }
 
-    // Reproductor y FABs
-    .radio-player { width: 200px; right: 12px; bottom: 12px; }
-    .msg-fab  { right: 12px; }
-    .top-fab  { right: 12px; }
-
-    // Portal card
-    .programa-portal .programa-expanded { width: 220px; }
+    .radio-player { width: 190px; right: 10px; bottom: 10px; }
+    .msg-fab  { right: 10px; }
+    .top-fab  { right: 10px; }
+    .programa-portal .programa-expanded { width: 90vw; }
 }
+
+
+
+

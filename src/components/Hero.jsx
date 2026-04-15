@@ -2,9 +2,9 @@ import Nav from './Nav'
 import MusicCard from './MusicCard'
 
 const heroCards = [
-  { img: '/Img/ajena.jpeg',  title: 'Tu Eres AJENA',      artist: 'Eddy Herrera',   src: '/music/Tu Eres AJENA  - Eddy Herrera [Video Oficial].mp3' },
-  { img: '/Img/elvis.jpeg',  title: 'Pegadito Suavecito', artist: 'Elvis Crespo',   src: '/music/Pegadito Suavecito.mp3' },
-  { img: '/Img/vale.jpg',    title: 'Vale la Pena',       artist: 'Juan Luis Guerra', src: '/music/Juan Luis Guerra 4.40 - Vale la Pena (Live) (Video Oficial).mp3' },
+  { img: './Img/ajena.jpeg',  title: 'Tu Eres AJENA',      artist: 'Eddy Herrera',   src: './music/Tu Eres AJENA  - Eddy Herrera [Video Oficial].mp3' },
+  { img: './Img/elvis.jpeg',  title: 'Pegadito Suavecito', artist: 'Elvis Crespo',   src: './music/Pegadito Suavecito.mp3' },
+  { img: './Img/vale.jpg',    title: 'Vale la Pena',       artist: 'Juan Luis Guerra', src: './music/Juan Luis Guerra 4.40 - Vale la Pena (Live) (Video Oficial).mp3' },
 ]
 
 export default function Hero({ onSintoniza }) {

@@ -1,8 +1,8 @@
 const aliados = [
-  '/Img/rio_supermarket_logo.jpeg',
-  '/Img/images.png',
-  '/Img/clean.jpg',
-  '/Img/garaje.jpg',
+  './Img/rio_supermarket_logo.jpeg',
+  './Img/images.png',
+  './Img/clean.jpg',
+  './Img/garaje.jpg',
 ]
 
 export default function Aliados() {
