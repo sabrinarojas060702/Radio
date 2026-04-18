@@ -1,5 +1,4 @@
-import { useState, useRef } from 'react'
-import { createPortal } from 'react-dom'
+import { useState } from 'react'
 
 const programas = [
   {
@@ -9,7 +8,7 @@ const programas = [
     icon: <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M312-240q-51 0-97.5-18T131-311q-48-45-69.5-106.5T40-545q0-78 38-126.5T189-720q14 0 26.5 2.5T241-710l239 89 239-89q13-5 25.5-7.5T771-720q73 0 111 48.5T920-545q0 66-21.5 127.5T829-311q-37 35-83.5 53T648-240Z"/></svg>,
   },
   {
-    title: 'La mañana alegrey feliz',
+    title: 'La mañana alegre y feliz',
     expandTitle: 'La Mañana Alegre y Feliz',
     desc: 'Comienza tu mañana con buena vibra. Noticias, música y entretenimiento para arrancar el día con una sonrisa desde las 6am.',
     icon: <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M480-28 346-160H160v-186L28-480l132-134v-186h186l134-132 134 132h186v186l132 134-132 134v186H614L480-28Z"/></svg>,
@@ -28,43 +27,24 @@ const programas = [
   },
 ]
 
-function ProgramaPortal({ programa, rect, onClose }) {
-  if (!programa || !rect) return null
-  return createPortal(
-    <div
-      className="programa-portal active"
-      style={{ top: rect.top + window.scrollY, left: rect.left + window.scrollX }}
-    >
-      <div className="programa-expanded">
-        <button className="programa-close" onClick={onClose}>&times;</button>
-        <div className="programa-icon-lg">{programa.icon}</div>
-        <h4>{programa.expandTitle}</h4>
-        <p>{programa.desc}</p>
-      </div>
-    </div>,
-    document.body
-  )
-}
-
 export default function Sobre() {
   const [expanded, setExpanded] = useState(null)
-  const [rect, setRect] = useState(null)
-  const cardRefs = useRef([])
 
-  const open = (i) => {
-    const r = cardRefs.current[i]?.getBoundingClientRect()
-    setRect(r)
-    setExpanded(programas[i])
-  }
+  const toggle = (i) => setExpanded(expanded === i ? null : i)
 
   return (
     <section id="sobre" className="Sobre">
       <div className="sobre-programas">
         {programas.map((p, i) => (
-          <div className="programa-card" key={i} ref={el => cardRefs.current[i] = el}>
+          <div className={`programa-card${expanded === i ? ' expanded' : ''}`} key={i}>
             <div className="programa-icon">{p.icon}</div>
             <p>{p.title}</p>
-            <button className="Descripcion" onClick={() => open(i)}>Descripcion</button>
+            <button className="Descripcion" onClick={() => toggle(i)}>
+              {expanded === i ? 'Cerrar' : 'Descripcion'}
+            </button>
+            <div className="programa-desc-panel">
+              <p>{p.desc}</p>
+            </div>
           </div>
         ))}
       </div>
@@ -77,8 +57,6 @@ export default function Sobre() {
           Descargar Aquí
         </button>
       </div>
-
-      <ProgramaPortal programa={expanded} rect={rect} onClose={() => setExpanded(null)} />
     </section>
   )
 }
